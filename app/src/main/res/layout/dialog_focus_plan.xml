@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_elevated_r10"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_focusplan_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/btn_text_r8"
+        android:drawablePadding="5dp"
+        android:padding="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_20"
+        app:drawableTint="?android:attr/textColorPrimary" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_focusplan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

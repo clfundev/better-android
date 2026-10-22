@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.focusrecord.FocusRecordActivity">
+
+    <!--  顶部应用栏  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp">
+
+        <ImageView
+            android:id="@+id/iv_focusrecord_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/btn_text_r8"
+            android:paddingVertical="6dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="2dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            app:tint="?attr/colorControlNormal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:gravity="center_vertical"
+            android:text="@string/focusrecord_title"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_r8"
+                    android:orientation="vertical"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="10dp">
+
+                    <io.github.clfundev.better.widget.MarqueeTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/focusrecord_total_duration"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_focusrecord_totalduration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textColor="?attr/colorPrimary"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/card_r8"
+                    android:orientation="vertical"
+                    android:paddingVertical="12dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="10dp">
+
+                    <io.github.clfundev.better.widget.MarqueeTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/focusrecord_daily_aver_duration"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_focusrecord_dailyaverduration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textColor="?attr/colorPrimary"
+                        android:textSize="28sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_r8"
+                android:orientation="vertical"
+                android:paddingVertical="12dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/focusrecord_duration_trend"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textSize="16sp" />
+
+                <io.github.clfundev.better.widget.LineChartView
+                    android:id="@+id/linechart_focusrecord_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:paddingStart="5dp"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

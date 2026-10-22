@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_elevated_r30"
+    android:orientation="vertical">
+
+    <io.github.clfundev.better.widget.IntegerWheelPicker
+        android:id="@+id/wp_intpicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        app:digitsEnabled="false"
+        app:maxValue="100"
+        app:minValue="1" />
+
+    <include
+        android:id="@+id/btnbar_intpicker"
+        layout="@layout/btn_bar" />
+</LinearLayout>

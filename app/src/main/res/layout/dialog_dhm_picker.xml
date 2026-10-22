@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_elevated_r30"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_dhmpicker_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <io.github.clfundev.better.widget.DateWheelPicker
+            android:id="@+id/wp_dhmpicker_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5" />
+
+        <io.github.clfundev.better.widget.IntegerWheelPicker
+            android:id="@+id/wp_dhmpicker_hour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:digits="2"
+            app:digitsEnabled="true"
+            app:maxValue="23"
+            app:minValue="0" />
+
+        <io.github.clfundev.better.widget.IntegerWheelPicker
+            android:id="@+id/wp_dhmpicker_minute"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:digits="2"
+            app:digitsEnabled="true"
+            app:maxValue="59"
+            app:minValue="0" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/btnbar_dhmpicker"
+        layout="@layout/btn_bar" />
+</LinearLayout>

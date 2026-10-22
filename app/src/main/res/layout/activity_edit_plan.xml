@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.editplan.EditPlanActivity">
+
+    <!-- 顶部操作栏 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_editplan_cancel"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/btn_text_r8"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_close_24"
+            app:tint="?attr/colorOnSurface"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_editplan_header"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@+id/iv_editplan_cancel"
+            android:layout_alignBottom="@+id/iv_editplan_cancel"
+            android:layout_toStartOf="@id/iv_editplan_confirm"
+            android:layout_toEndOf="@id/iv_editplan_cancel"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <ImageView
+            android:id="@+id/iv_editplan_confirm"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/btn_text_r8"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_check_24"
+            app:tint="?attr/colorOnSurface"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <!-- title -->
+            <EditText
+                android:id="@+id/et_editplan_title"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/card_r8"
+                android:hint="@string/editplan_title"
+                android:inputType="text"
+                android:paddingHorizontal="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"
+                tools:ignore="Autofill" />
+
+            <!-- goalType,goalAmount -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/card_r8"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_editplan_goaltype"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/btn_text_r8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/editplan_goaltype"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_editplan_goaltype"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:paddingHorizontal="6dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_editplan_goalamount"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/btn_text_r8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/editplan_goalamount"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_editplan_goalamount"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:paddingHorizontal="6dp"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- start,duration,repeat,hasAlarm -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/card_r8"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_editplan_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/btn_text_r8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/editplan_start"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_editplan_start"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:paddingHorizontal="6dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_editplan_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/btn_text_r8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/editplan_duration"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_editplan_duration"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:paddingHorizontal="6dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray" />
+
+                <LinearLayout
+                    android:id="@+id/ll_editplan_repeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/btn_text_r8"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/editplan_repeat"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_editplan_repeat"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:paddingHorizontal="6dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switch_editplan_alarm"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/btn_text_r8"
+                    android:gravity="center_vertical"
+                    android:text="@string/editplan_alarm"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <!-- description -->
+            <EditText
+                android:id="@+id/et_editplan_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_r8"
+                android:hint="@string/editplan_description"
+                android:inputType="textMultiLine"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/tv_editplan_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_outlined_red_r100"
+                android:paddingHorizontal="66dp"
+                android:paddingVertical="10dp"
+                android:text="@string/editplan_delete"
+                android:textAllCaps="true"
+                android:textColor="@color/red"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_elevated_r30"
+    android:orientation="vertical"
+    android:paddingVertical="10dp">
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_rrule_repeat"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/btn_text_r8"
+        android:gravity="center_vertical"
+        android:text="@string/editplan_repeat"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_rrule_setrepeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_rrule_everytip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/editplan_every"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="19sp" />
+
+            <io.github.clfundev.better.widget.IntegerWheelPicker
+                android:id="@+id/wp_rrule_interval"
+                style="@style/RruleWheelPicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                app:digitsEnabled="false"
+                app:maxValue="100"
+                app:minValue="1" />
+
+            <io.github.clfundev.better.widget.FreqWheelPicker
+                android:id="@+id/wp_rrule_freq"
+                style="@style/RruleWheelPicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <GridLayout
+            android:id="@+id/gl_rrule_bydays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:columnCount="5"
+            android:orientation="horizontal"
+            android:rowCount="2">
+
+            <io.github.clfundev.better.widget.CircularCheckBox
+                android:id="@+id/ccb_rrule_mon"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_margin="5dp"
+                app:text="@string/all_mon" />
+
+            <io.github.clfundev.better.widget.CircularCheckBox
+                android:id="@+id/ccb_rrule_tue"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_margin="5dp"
+                app:text="@string/all_tue" />
+
+            <io.github.clfundev.better.widget.CircularCheckBox
+                android:id="@+id/ccb_rrule_wed"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_margin="5dp"
+                app:text="@string/all_wed" />
+
+            <io.github.clfundev.better.widget.CircularCheckBox
+                android:id="@+id/ccb_rrule_thu"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_margin="5dp"
+                app:text="@string/all_thu" />
+
+            <io.github.clfundev.better.widget.CircularCheckBox
+                android:id="@+id/ccb_rrule_fri"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_margin="5dp"
+                app:text="@string/all_fri" />
+
+            <io.github.clfundev.better.widget.CircularCheckBox
+                android:id="@+id/ccb_rrule_sat"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_margin="5dp"
+                app:text="@string/all_sat" />
+
+            <io.github.clfundev.better.widget.CircularCheckBox
+                android:id="@+id/ccb_rrule_sun"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_margin="5dp"
+                app:text="@string/all_sun" />
+
+        </GridLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/btnbar_rrule"
+        layout="@layout/btn_bar" />
+</LinearLayout>

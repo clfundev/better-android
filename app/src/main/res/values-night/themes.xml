@@ -1,0 +1,31 @@
+<resources>
+
+    <style name="Theme.Better" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- 自定义颜色 -->
+        <item name="appBackgroundColor">@color/background_primary_dark</item>
+        <item name="appCardColor">@color/background_secondary_dark</item>
+        <item name="appElevatedBackgroundColor">@color/background_secondary_dark</item>
+        <item name="appElevatedCardColor">@color/background_tertiary_dark</item>
+        <item name="appElevatedCardShadowColor">@color/background_secondary_dark</item>
+
+        <item name="colorPrimary">@color/primary_dark</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <item name="colorSecondary">@color/primary_dark</item>
+        <item name="colorSecondaryVariant">@color/primary_variant</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:colorBackground">?attr/appBackgroundColor</item>
+        <item name="colorBackgroundFloating">?attr/appElevatedBackgroundColor</item>
+        <item name="android:colorBackgroundFloating">?attr/appElevatedBackgroundColor</item>
+
+        <!-- 虽然启用了edge-to-edge，但冷启动时系统栏颜色响应有延迟，因此仍需要指定以下属性 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+</resources>

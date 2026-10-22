@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- 专注时长的选项 -->
+    <string-array name="settings_focus_duration_entries">
+        <item>@string/settings_focus_duration_option_20min</item>
+        <item>@string/settings_focus_duration_option_25min</item>
+        <item>@string/settings_focus_duration_option_45min</item>
+        <item>@string/settings_focus_duration_option_50min</item>
+    </string-array>
+
+    <!-- 专注时长选项值-->
+    <string-array name="settings_focus_duration_values">
+        <item>1200000</item><!---->
+        <item>1500000</item><!---->
+        <item>2700000</item>
+        <item>3000000</item>
+    </string-array>
+
+    <string-array name="goal_type_items">
+        <item>@string/editplan_count</item>
+        <item>@string/editplan_focus</item>
+    </string-array>
+
+</resources>

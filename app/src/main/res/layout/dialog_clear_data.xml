@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_elevated_r30"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_cleardata_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/cleardata_dialog_title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="12dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_cleardata_plan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cleardata_plans_option"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_cleardata_focusrecord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cleardata_focus_records_option"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include
+        android:id="@+id/btnbar_cleardata"
+        layout="@layout/btn_bar" />
+</LinearLayout>

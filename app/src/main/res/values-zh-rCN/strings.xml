@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="all_focusing">专注中</string>
+    <string name="all_relaxing">休息中</string>
+    <string name="all_no_network">无网络连接</string>
+
+    <string name="settings_focus_mode_header">专注模式</string>
+    <string name="settings_focus_duration_title">专注时长</string>
+    <string name="settings_focus_duration_option_20min">20分钟</string>
+    <string name="settings_focus_duration_option_25min">25分钟</string>
+    <string name="settings_focus_duration_option_45min">45分钟</string>
+    <string name="settings_focus_duration_option_50min">50分钟</string>
+    <string name="settings_sound_title">声音</string>
+    <string name="settings_vibration_title">振动</string>
+    <string name="settings_strict_time_title">严格时间</string>
+    <string name="settings_keep_screen_on_title">屏幕常亮</string>
+    <string name="settings_reset_header">重置</string>
+    <string name="settings_reset_all_settings_title">重置所有设置</string>
+    <string name="all_warning">警告</string>
+    <string name="settings_reset_warning">您是否要重置所有设置？</string>
+    <string name="settings_help_header">帮助</string>
+    <string name="settings_ignore_battery_optimization_title">关闭电池优化</string>
+    <string name="settings_autostart_settings_title">自启动设置</string>
+    <string name="settings_autostart_settings_summary">勾选\"自启动\"选项</string>
+    <string name="settings_clear_data_title">清除数据</string>
+    <string name="settings_clear_data_warning">以下数据将被清除：</string>
+    <string name="settings_flashlight_title">闪光灯</string>
+
+    <plurals name="editplan_repeat_daily">
+        <item quantity="other">每%d天</item>
+    </plurals>
+    <plurals name="editplan_repeat_weekly">
+        <item quantity="other">每%d周</item>
+    </plurals>
+    <plurals name="editplan_repeat_monthly">
+        <item quantity="other">每%d月</item>
+    </plurals>
+    <plurals name="editplan_repeat_yearly">
+        <item quantity="other">每%d年</item>
+    </plurals>
+
+    <string name="cleardata_dialog_title">清除数据</string>
+    <string name="cleardata_focus_records_option">专注记录</string>
+    <string name="cleardata_plans_option">计划</string>
+
+    <string name="all_date_dayofweek_format">yyyy年M月d日E</string>
+    <string name="all_month_day_format">M月d日</string>
+    <string name="all_date_hour_minute_format">yyyy年M月d日 HH:mm</string>
+
+    <string name="all_confirm">确定</string>
+    <string name="all_cancel">取消</string>
+    <string name="all_yes">是</string>
+    <string name="all_no">否</string>
+
+    <plurals name="unit_day">
+        <item quantity="other">天</item>
+    </plurals>
+    <plurals name="unit_week">
+        <item quantity="other">周</item>
+    </plurals>
+    <plurals name="unit_month">
+        <item quantity="other">月</item>
+    </plurals>
+    <plurals name="unit_year">
+        <item quantity="other">年</item>
+    </plurals>
+    <string name="all_abbr_hour">时</string>
+    <string name="all_abbr_minute">分</string>
+    <string name="all_date_format">yyyy年M月d日</string>
+    <string name="planalarm_keep_moving">持之以恒</string>
+    <string name="plan_title">计划</string>
+    <string name="settings_title">设置</string>
+    <string name="focus_title">专注</string>
+    <string name="editplan_title">标题</string>
+    <string name="editplan_start">开始</string>
+    <string name="editplan_duration">时长</string>
+    <string name="editplan_repeat">重复</string>
+    <string name="editplan_neverrepeat">不重复</string>
+    <string name="editplan_description">描述</string>
+    <string name="editplan_goalamount">目标数量</string>
+    <string name="editplan_goaltype">目标类型</string>
+    <string name="editplan_alarm">提醒</string>
+    <string name="editplan_count">计数</string>
+    <string name="editplan_focus">专注</string>
+    <string name="all_no_plan">无计划</string>
+    <string name="all_mon">周一</string>
+    <string name="all_tue">周二</string>
+    <string name="all_wed">周三</string>
+    <string name="all_thu">周四</string>
+    <string name="all_fri">周五</string>
+    <string name="all_sat">周六</string>
+    <string name="all_sun">周日</string>
+    <string name="plan_continuous">连续达成</string>
+    <string name="plan_total">共达成</string>
+    <string name="editplan_every">每</string>
+    <string name="editplan_require_title">标题不能为空</string>
+    <string name="editplan_new_plan_header">新建计划</string>
+    <string name="editplan_edit_plan_header">编辑计划</string>
+    <string name="editplan_invalid_count_goalamount">目标数量不能小于1</string>
+    <string name="editplan_invalid_time_goalamount">目标数量不能小于5分钟</string>
+
+    <string name="editplan_modify_plan_warning">如果您修改该计划，该计划的所有完成记录将被清空。您是否确定要修改计划？</string>
+    <string name="focus_start">开始</string>
+    <string name="focus_stop">结束</string>
+    <string name="focus_plan">计划</string>
+    <string name="focusrecord_title">专注记录</string>
+    <string name="focusrecord_daily_aver_duration">日均专注时长</string>
+    <string name="focusrecord_total_duration">总专注时长</string>
+    <string name="focusrecord_duration_trend">专注时长趋势</string>
+
+    <string name="focusplan_goal">目标: %1$s</string>
+    <string name="plandetail_occur_cross_day">开始: %1$s\n结束: %2$s</string>
+    <string name="all_date_dayofweek_hour_minute_format">yyyy年M月d日E HH:mm</string>
+    <string name="plandetail_none">无</string>
+    <string name="plandetail_goal_focus">目标(专注)</string>
+    <string name="plandetail_goal_count">目标(计数)</string>
+    <string name="plandetail_total">共达成</string>
+    <string name="plandetail_continuous">连续达成</string>
+    <string name="plandetail_description">描述</string>
+    <string name="editplan_delete">删除</string>
+    <string name="editplan_delete_warning">您确定要删除该计划吗？</string>
+    <string name="all_account">账号</string>
+    <string name="all_password">密码</string>
+    <string name="all_login">登录</string>
+    <string name="settings_backup_title">备份</string>
+    <string name="settings_restore_title">恢复</string>
+    <string name="settings_cloud_service_header">云服务</string>
+    <string name="settings_login_title">登录</string>
+    <string name="all_not_logged_in">请先登录</string>
+    <string name="all_sign_up">注册</string>
+    <string name="backup_do_not_leave">正在备份\n<b>请不要离开</b></string>
+    <string name="backup_succeeded">备份成功</string>
+    <string name="backup_failed">备份失败</string>
+    <string name="backup_error">错误: %1$s</string>
+    <string name="itembackup_btn_download">下载</string>
+    <string name="restore_title">恢复</string>
+    <string name="restore_succeeded">恢复成功</string>
+    <string name="itembackup_btn_restore">恢复</string>
+    <string name="all_skip_login">暂不登录</string>
+    <string name="all_confirm_password">确认密码</string>
+    <string name="all_nickname">昵称</string>
+    <string name="all_profile">个人简介</string>
+    <string name="register_invalid_account">账号不合法</string>
+    <string name="register_invalid_password">密码不合法</string>
+    <string name="register_invalid_nickname">昵称不合法</string>
+    <string name="register_title">注册</string>
+    <string name="register_succeeded">注册成功</string>
+    <string name="login_succeeded">登录成功</string>
+    <string name="register_mismatch_password">密码不一致</string>
+</resources>
