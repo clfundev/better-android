@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKey
 
 /**
  * 以SharedPreferences实现的设置访问类
@@ -11,6 +13,19 @@ import androidx.preference.PreferenceManager
 class AppPreferences(context: Context) {
     private val sharedPreferences: SharedPreferences =
         PreferenceManager.getDefaultSharedPreferences(context)
+
+    private val secretSharedPrefs: SharedPreferences by lazy {
+        val masterKey = MasterKey.Builder(context)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+            .build()
+        EncryptedSharedPreferences.create(
+            context,
+            SECRET_SHARED_PREFS_NAME,
+            masterKey,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
+    }
 
     var focusDuration: Long
         get() = sharedPreferences.getString(KEY_FOCUS_DURATION, DEFAULT_FOCUS_DURATION)!!.toLong()
@@ -60,11 +75,19 @@ class AppPreferences(context: Context) {
             }
         }
 
-    var token: String?
-        get() = sharedPreferences.getString(KEY_TOKEN, null)
+    var accessToken: String?
+        get() = secretSharedPrefs.getString(KEY_ACCESS_TOKEN, null)
         set(value) {
-            sharedPreferences.edit {
-                putString(KEY_TOKEN, value)
+            secretSharedPrefs.edit {
+                putString(KEY_ACCESS_TOKEN, value)
+            }
+        }
+
+    var refreshToken: String?
+        get() = secretSharedPrefs.getString(KEY_REFRESH_TOKEN, null)
+        set(value) {
+            secretSharedPrefs.edit {
+                putString(KEY_REFRESH_TOKEN, value)
             }
         }
 
@@ -84,9 +107,6 @@ class AppPreferences(context: Context) {
         const val KEY_BACKUP: String = "backup"
         const val KEY_RESTORE: String = "restore"
 
-        // 设置之外使用SharedPreferences存储的数据的键
-        const val KEY_TOKEN: String = "token"
-
         // 设置的默认值，注意要与root_preferences.xml一致
         const val DEFAULT_FOCUS_DURATION: String = "3000000"
         const val DEFAULT_SOUND: Boolean = true
@@ -94,5 +114,9 @@ class AppPreferences(context: Context) {
         const val DEFAULT_FLASHLIGHT: Boolean = false
         const val DEFAULT_STRICT_TIME: Boolean = true
         const val DEFAULT_KEEP_SCREEN_ON: Boolean = true
+
+        private const val SECRET_SHARED_PREFS_NAME: String = "secret_shared_prefs"
+        private const val KEY_ACCESS_TOKEN: String = "access_token"
+        private const val KEY_REFRESH_TOKEN: String = "refresh_token"
     }
 }

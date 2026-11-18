@@ -23,6 +23,7 @@ room = "2.8.4"
 preference = "1.2.1"
 paging = "3.5.0"
 serializationJson = "1.11.0"
+securityCrypto = "1.1.0"
 
 [libraries]
 # Core
@@ -64,6 +65,9 @@ paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.r
 
 # JSON serialization
 kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationJson" }
+
+# EncryptedSharedPreferences
+security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "securityCrypto" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

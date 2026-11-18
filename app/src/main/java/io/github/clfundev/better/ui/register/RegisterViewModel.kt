@@ -22,6 +22,7 @@ class RegisterViewModel(private val userApi: UserApi) : ViewModel() {
     private val _password = MutableStateFlow("")
     private val _confirmPassword = MutableStateFlow("")
     private val _nickname = MutableStateFlow("")
+    private val _profile = MutableStateFlow("")
 
     val registerState = _registerState.asStateFlow()
     val messages = _messages.asStateFlow()
@@ -29,6 +30,7 @@ class RegisterViewModel(private val userApi: UserApi) : ViewModel() {
     val password = _password.asStateFlow()
     val confirmPassword = _confirmPassword.asStateFlow()
     val nickname = _nickname.asStateFlow()
+    val profile = _profile.asStateFlow()
 
     val isAccountValid get() = _account.value.trim().isNotEmpty()
     val isPasswordValid get() = _password.value.trim().isNotEmpty()
@@ -49,7 +51,8 @@ class RegisterViewModel(private val userApi: UserApi) : ViewModel() {
         _registerState.value = RegisterState.REGISTERING
         viewModelScope.launch {
             try {
-                val req = RegisterRequest(account.value, password.value, nickname.value)
+                val req =
+                    RegisterRequest(account.value, password.value, nickname.value, profile.value)
                 val resp = userApi.register(req)
                 if (resp.isSuccessful()) {
                     _registerState.value = RegisterState.REGISTERED
@@ -78,6 +81,10 @@ class RegisterViewModel(private val userApi: UserApi) : ViewModel() {
 
     fun onNicknameChange(nickname: String) {
         _nickname.value = nickname
+    }
+
+    fun onProfileChange(profile: String) {
+        _profile.value = profile
     }
 
     private fun showMessage(message: Message) {

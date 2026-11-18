@@ -111,4 +111,7 @@ dependencies {
 
     // kotlinx-serialization-json
     implementation(libs.kotlin.serialization.json)
+
+    // EncryptedSharedPreferences
+    implementation(libs.security.crypto)
 }

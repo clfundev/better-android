@@ -143,7 +143,7 @@ class SettingsFragment : Fragment() {
             }
             backupPref.setOnPreferenceClickListener {
                 val appPreferences = context.getAppContainer().appPreferences
-                val token = appPreferences.token
+                val token = appPreferences.accessToken
                 if (token.isNullOrEmpty()) {
                     Toast.makeText(context, R.string.all_not_logged_in, Toast.LENGTH_SHORT).show()
                 } else {
@@ -153,7 +153,7 @@ class SettingsFragment : Fragment() {
             }
             restorePref.setOnPreferenceClickListener {
                 val appPreferences = context.getAppContainer().appPreferences
-                val token = appPreferences.token
+                val token = appPreferences.accessToken
                 if (token.isNullOrEmpty()) {
                     Toast.makeText(context, R.string.all_not_logged_in, Toast.LENGTH_SHORT).show()
                 } else {

@@ -155,6 +155,20 @@ class RegisterActivity : BaseActivity() {
             }
         }
 
+        binding.tilRegisterProfile.editText?.apply {
+            doAfterTextChanged {
+                vm.onProfileChange(text.toString())
+            }
+
+            lifecycleScope.launch {
+                vm.profile.collectLatest {
+                    if (it != text.toString()) {
+                        setText(it)
+                    }
+                }
+            }
+        }
+
         lifecycleScope.launch {
             vm.registerState.collectLatest { state ->
                 binding.lpiRegister.visibility =

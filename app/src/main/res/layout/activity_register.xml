@@ -119,12 +119,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:hint="@string/all_profile">
+                android:hint="@string/all_profile"
+                app:counterEnabled="true"
+                app:counterMaxLength="100">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
+                    android:maxLength="100"
                     android:selectAllOnFocus="true" />
 
             </com.google.android.material.textfield.TextInputLayout>

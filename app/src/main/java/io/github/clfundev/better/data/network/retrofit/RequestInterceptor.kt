@@ -10,8 +10,8 @@ import okhttp3.Response
 class RequestInterceptor(private val appPreferences: AppPreferences) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder()
-        appPreferences.token?.let {
-            builder.addHeader("token", it)
+        appPreferences.accessToken?.let {
+            builder.addHeader("Authorization", "Bearer $it")
         }
         return chain.proceed(builder.build())
     }

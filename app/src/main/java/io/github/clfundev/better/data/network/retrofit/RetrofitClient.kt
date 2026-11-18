@@ -15,7 +15,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Type
-import java.time.LocalDateTime
+import java.time.Instant
 import java.util.concurrent.TimeUnit
 
 class RetrofitClient(appPreferences: AppPreferences) {
@@ -32,7 +32,7 @@ class RetrofitClient(appPreferences: AppPreferences) {
             .addInterceptor(RequestInterceptor(appPreferences))
             .build()
         val gson = GsonBuilder()
-            .registerTypeAdapter(LocalDateTime::class.java, LocalDateTimeAdapter())
+            .registerTypeAdapter(Instant::class.java, InstantAdapter())
             .create()
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
@@ -41,11 +41,11 @@ class RetrofitClient(appPreferences: AppPreferences) {
             .build()
     }
 
-    // 让Gson支持LocalDateTime的序列化和反序列化
-    private class LocalDateTimeAdapter :
-        JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
+    // 让Gson支持Instant的序列化和反序列化
+    private class InstantAdapter :
+        JsonSerializer<Instant>, JsonDeserializer<Instant> {
         override fun serialize(
-            src: LocalDateTime,
+            src: Instant,
             typeOfSrc: Type,
             context: JsonSerializationContext
         ): JsonElement = JsonPrimitive(src.toString())
@@ -54,7 +54,7 @@ class RetrofitClient(appPreferences: AppPreferences) {
             json: JsonElement,
             typeOfT: Type,
             context: JsonDeserializationContext
-        ): LocalDateTime = LocalDateTime.parse(json.asString)
+        ): Instant = Instant.parse(json.asString)
     }
 
     companion object {

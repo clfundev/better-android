@@ -68,7 +68,8 @@ class LoginViewModel(
             try {
                 val resp = userApi.login(LoginRequest(account.value, password.value))
                 if (resp.isSuccessful()) {
-                    appPreferences.token = resp.data
+                    appPreferences.accessToken = resp.data?.accessToken
+                    appPreferences.refreshToken = resp.data?.refreshToken
                     _loginState.value = LoginState.LOGGED_IN
                 } else {
                     showMessage(Message(plainText = "login error: ${resp.message}"))
