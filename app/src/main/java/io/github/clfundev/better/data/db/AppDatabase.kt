@@ -81,7 +81,10 @@ abstract class AppDatabase : RoomDatabase() {
                 context.applicationContext,
                 AppDatabase::class.java,
                 DB_NAME
-            ).createFromFile(prepopulateDbFile).build()
+            )
+                .createFromFile(prepopulateDbFile)
+                .allowMainThreadQueries()
+                .build()
         }
 
         /**

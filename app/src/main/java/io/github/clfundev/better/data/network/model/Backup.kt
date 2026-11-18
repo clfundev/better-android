@@ -1,13 +1,13 @@
 package io.github.clfundev.better.data.network.model
 
-import java.time.LocalDateTime
+import java.time.Instant
 
 /**
  * 备份
  */
 data class Backup(
-    val backupId: String,
-    val userId: Int,
-    val createTime: LocalDateTime,
-    val size: Long
+    val id: String,
+    val userId: Long,
+    val size: Long,
+    val createdAt: Instant,
 )

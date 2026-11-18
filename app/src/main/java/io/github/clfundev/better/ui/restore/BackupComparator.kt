@@ -5,7 +5,7 @@ import io.github.clfundev.better.data.network.model.Backup
 
 class BackupComparator : DiffUtil.ItemCallback<Backup>() {
     override fun areItemsTheSame(oldItem: Backup, newItem: Backup): Boolean {
-        return oldItem.backupId == newItem.backupId
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: Backup, newItem: Backup): Boolean {

@@ -13,6 +13,7 @@ import io.github.clfundev.better.data.network.model.Backup
 import io.github.clfundev.better.databinding.ItemBackupBinding
 import io.github.clfundev.better.ui.restore.BackupPagingAdapter.BackupViewHolder
 import io.github.clfundev.better.widget.DownloadButton
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class BackupPagingAdapter(
@@ -35,14 +36,15 @@ class BackupPagingAdapter(
         if (backup != null) {
             val pattern = context.getString(R.string.all_date_hour_minute_neat_format)
             val formatter = DateTimeFormatter.ofPattern(pattern)
-            holder.timeTv.text = backup.createTime.format(formatter)
+            val time = backup.createdAt.atZone(ZoneId.systemDefault()).toLocalDateTime()
+            holder.timeTv.text = time.format(formatter)
             holder.sizeTv.text = formatFileSize(backup.size)
             when (val state = downloadState) {
-                is DownloadState.Downloading if state.backupId == backup.backupId -> {
+                is DownloadState.Downloading if state.backupId == backup.id -> {
                     holder.downloadBtn.setProgress(state.progress)
                 }
 
-                is DownloadState.Downloaded if state.backupId == backup.backupId -> {
+                is DownloadState.Downloaded if state.backupId == backup.id -> {
                     holder.downloadBtn.setState(DownloadButton.FINISHED)
                 }
 
@@ -69,7 +71,7 @@ class BackupPagingAdapter(
                 else -> null
             }
             if (changedId != null) {
-                val index = items.indexOfFirst { it.backupId == changedId }
+                val index = items.indexOfFirst { it.id == changedId }
                 if (index in items.indices) {
                     notifyItemChanged(index)
                 }

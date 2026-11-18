@@ -14,7 +14,7 @@ class BackupPagingSource(
         try {
             val pageNum = params.key ?: 1 // Start refresh at page 1 if undefined
             val pageSize = params.loadSize
-            val response = backupApi.getBackups(pageNum, pageSize)
+            val response = backupApi.page(pageNum, pageSize)
             val page = response.data
             if (!response.isSuccessful() || page == null) {
                 Log.e(TAG, "getBackups error: code = ${response.code}, msg = ${response.message}")

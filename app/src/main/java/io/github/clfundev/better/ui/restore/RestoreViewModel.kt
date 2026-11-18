@@ -39,29 +39,9 @@ class RestoreViewModel(private val backupApi: BackupApi) : ViewModel() {
         BackupPagingSource(backupApi)
     }.flow.cachedIn(viewModelScope)
 
-    fun downloadBackup(backupId: String, context: Context) {
-        when (_downloadState.value) {
-            is DownloadState.Idle -> {
-                // 执行下载
-                download(backupId, context)
-            }
-
-            is DownloadState.Downloading -> {
-                showMessage(Message(plainText = "Please wait for the download to complete"))
-            }
-
-            is DownloadState.Downloaded -> {
-                val id = (_downloadState.value as DownloadState.Downloaded).backupId
-                if (backupId == id) {
-                    // 恢复备份
-                    AppDatabase.restoreFromBackup(context)
-                } else {
-                    // 执行下载
-                    download(backupId, context)
-                }
-            }
-
-            else -> {}
+    fun onDownloadClick(backupId: String, context: Context) {
+        if (_downloadState.value is DownloadState.Idle) {
+            download(backupId, context)
         }
     }
 
@@ -69,7 +49,7 @@ class RestoreViewModel(private val backupApi: BackupApi) : ViewModel() {
         _downloadState.value = DownloadState.Downloading(backupId, 0f)
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val resp = backupApi.downloadBackup(backupId)
+                val resp = backupApi.download(backupId)
                 val body = resp.body()
                 if (!resp.isSuccessful || body == null) {
                     showMessage(Message(plainText = "downloadBackup error: ${resp.message()}"))
@@ -119,5 +99,4 @@ sealed interface DownloadState {
     data object Idle : DownloadState
     data class Downloading(val backupId: String, val progress: Float) : DownloadState
     data class Downloaded(val backupId: String) : DownloadState
-    data object Restored : DownloadState
 }

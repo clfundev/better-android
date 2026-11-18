@@ -16,14 +16,14 @@ import retrofit2.http.Streaming
 
 interface BackupApi {
     @GET("/backup/page")
-    suspend fun getBackups(
-        @Query("pageNum") pageNum: Int,
-        @Query("pageSize") pageSize: Int
+    suspend fun page(
+        @Query("current") current: Int,
+        @Query("size") size: Int
     ): ApiResponse<Page<Backup>>
 
     @Streaming
-    @GET("/backup/{id}")
-    suspend fun downloadBackup(@Path("id") id: String): Response<ResponseBody>
+    @GET("/backup/download/{id}")
+    suspend fun download(@Path("id") id: String): Response<ResponseBody>
 
     @Multipart
     @POST("/backup/upload")

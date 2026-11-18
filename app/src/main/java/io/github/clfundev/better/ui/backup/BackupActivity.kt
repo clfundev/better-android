@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.lifecycle.lifecycleScope
 import io.github.clfundev.better.R
+import io.github.clfundev.better.application.BetterApplication
 import io.github.clfundev.better.data.db.AppDatabase
 import io.github.clfundev.better.databinding.ActivityBackupBinding
 import io.github.clfundev.better.ui.BaseActivity
@@ -23,9 +24,9 @@ class BackupActivity : BaseActivity() {
     private lateinit var binding: ActivityBackupBinding
     private val handler = Handler(Looper.getMainLooper())
     private val backRunnable = Runnable {
-        // 返回主界面
+        // 销毁所有已打开的Activity，释放旧的数据库实例，回到首页
+        (application as BetterApplication).rebuildAppContainer()
         val intent = Intent(this@BackupActivity, MainActivity::class.java).apply {
-            // 使本应用中所有已打开的Activity关闭，防止旧的数据库实例被引用
             setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         }
         startActivity(intent)

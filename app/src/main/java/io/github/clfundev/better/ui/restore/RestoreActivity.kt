@@ -10,6 +10,8 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.clfundev.better.R
+import io.github.clfundev.better.application.BetterApplication
+import io.github.clfundev.better.data.db.AppDatabase
 import io.github.clfundev.better.databinding.ActivityRestoreBinding
 import io.github.clfundev.better.ui.BaseActivity
 import io.github.clfundev.better.ui.main.MainActivity
@@ -29,7 +31,7 @@ class RestoreActivity : BaseActivity() {
         binding.ivRestoreBack.setOnClickListener { finish() }
 
         val pagingAdapter = BackupPagingAdapter(this, BackupComparator()) {
-            vm.downloadBackup(it.backupId, this)
+            vm.onDownloadClick(it.id, this)
         }
 
         val linearLayoutManager = LinearLayoutManager(this)
@@ -43,20 +45,19 @@ class RestoreActivity : BaseActivity() {
 
         lifecycleScope.launch {
             vm.downloadState.collectLatest { downloadState ->
-                when (downloadState) {
-                    is DownloadState.Downloaded, is DownloadState.Downloading, is DownloadState.Idle -> {
-                        pagingAdapter.updateDownloadState(downloadState)
-                    }
+                pagingAdapter.updateDownloadState(downloadState)
 
-                    is DownloadState.Restored -> {
-                        showMsg(getString(R.string.restore_succeeded))
-                        // 回到主界面
-                        val intent = Intent(this@RestoreActivity, MainActivity::class.java).apply {
-                            // 使本应用中所有已打开的Activity关闭，防止旧的数据库实例被引用
-                            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                        }
-                        startActivity(intent)
+                if (downloadState is DownloadState.Downloaded) {
+                    // 将下载好的备份导入数据库
+                    AppDatabase.restoreFromBackup(this@RestoreActivity)
+                    showMsg(getString(R.string.restore_succeeded))
+
+                    // 销毁所有已打开的Activity，释放旧的数据库实例，回到首页
+                    (applicationContext as BetterApplication).rebuildAppContainer()
+                    val intent = Intent(this@RestoreActivity, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     }
+                    startActivity(intent)
                 }
             }
         }
