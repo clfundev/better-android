@@ -1,5 +1,5 @@
 [versions]
-agp = "9.2.1"
+agp = "9.5.2"
 
 # https://kotlinlang.org/docs/ksp-quickstart.html#add-a-ksp-based-processor-to-your-project
 kotlin = "2.3.21"
